@@ -1,0 +1,30 @@
+{
+  "_comment": "Reference table of International Morse Code. When the app is hosted over http(s) (e.g. GitHub Pages) this file is fetched at startup. When the app is opened directly as a local file (file://), browsers block fetch() of local JSON for security reasons, so js/morse.js keeps an identical copy of this table embedded as a JavaScript object to guarantee the app always works. If you edit this file, mirror the change in the MORSE_CODE_TABLE constant near the top of js/morse.js.",
+  "letters": {
+    "A": ".-",    "B": "-...",  "C": "-.-.",
+    "D": "-..",   "E": ".",     "F": "..-.",
+    "G": "--.",   "H": "....",  "I": "..",
+    "J": ".---",  "K": "-.-",   "L": ".-..",
+    "M": "--",    "N": "-.",    "O": "---",
+    "P": ".--.",  "Q": "--.-",  "R": ".-.",
+    "S": "...",   "T": "-",     "U": "..-",
+    "V": "...-",  "W": ".--",   "X": "-..-",
+    "Y": "-.--",  "Z": "--.."
+  },
+  "digits": {
+    "0": "-----", "1": ".----", "2": "..---",
+    "3": "...--", "4": "....-", "5": ".....",
+    "6": "-....", "7": "--...", "8": "---..",
+    "9": "----."
+  },
+  "punctuation": {
+    ".": ".-.-.-",  ",": "--..--",  "?": "..--..",
+    "'": ".----.",  "!": "-.-.--",  "/": "-..-.",
+    "(": "-.--.",   ")": "-.--.-",  "&": ".-...",
+    ":": "---...",  ";": "-.-.-.",  "=": "-...-",
+    "+": ".-.-.",   "-": "-....-",  "_": "..--.-",
+    "\"": ".-..-.", "$": "...-..-", "@": ".--.-."
+  },
+  "wordSeparator": "/",
+  "letterSeparator": " "
+}

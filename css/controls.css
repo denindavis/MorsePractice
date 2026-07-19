@@ -1,0 +1,328 @@
+/* ==========================================================================
+   controls.css
+   Toolbar buttons, checkbox toggles, sliders, selects, and preset
+   buttons used both on the main page and inside the Configure modal.
+   ========================================================================== */
+
+/* ==========================================================================
+   Media player control bar
+   Icon-only circular buttons laid out like a music player's transport
+   controls, with a large Play/Pause button at the center of gravity.
+   ========================================================================== */
+
+.media-player {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-panel);
+  border: 1px solid var(--color-panel-border);
+  border-radius: 999px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-soft);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.media-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--color-panel-border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+    border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.media-button__icon {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Explicit hidden state for the Play/Pause icon pair - a class
+   (rather than the SVG `hidden` attribute/property, which isn't
+   guaranteed to reflect reliably on SVGElement) so exactly one of the
+   two icons is ever visible. */
+.media-button__icon--hidden {
+  display: none;
+}
+
+.media-button--small {
+  width: 44px;
+  height: 44px;
+}
+
+.media-button--small .media-button__icon {
+  width: 17px;
+  height: 17px;
+}
+
+.media-button--medium {
+  width: 52px;
+  height: 52px;
+}
+
+.media-button--medium .media-button__icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  stroke: none;
+}
+
+.media-button--play {
+  width: 68px;
+  height: 68px;
+  background: var(--gradient-accent);
+  border-color: transparent;
+  color: #04160c;
+}
+
+.media-button--play .media-button__icon {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
+  stroke: none;
+}
+
+.media-button--play .media-button__icon--play {
+  margin-left: 3px; /* optically center the play triangle */
+}
+
+.media-button:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.04);
+  border-color: var(--color-panel-border-strong);
+}
+
+.media-button--play:hover:not(:disabled) {
+  box-shadow: var(--shadow-glow-blue);
+}
+
+.media-button:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+.media-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Toggle checkboxes (Light / Sound / Hide Plain / Hide Morse)
+   ========================================================================== */
+
+.config-toggle-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3) var(--space-5);
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  user-select: none;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  min-height: 44px;
+}
+
+.toggle input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.toggle__box {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 1.5px solid var(--color-panel-border-strong);
+  background: rgba(255, 255, 255, 0.03);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.toggle__box::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background: transparent;
+  transition: background var(--transition-fast);
+}
+
+.toggle input:checked + .toggle__box {
+  border-color: var(--color-electric-blue);
+  background: rgba(59, 130, 246, 0.15);
+}
+
+.toggle input:checked + .toggle__box::after {
+  background: var(--gradient-accent);
+}
+
+.toggle input:focus-visible + .toggle__box {
+  outline: 2px solid var(--color-electric-blue);
+  outline-offset: 2px;
+}
+
+.toggle:hover .toggle__box {
+  border-color: var(--color-panel-border-strong);
+}
+
+/* ==========================================================================
+   Speed preset buttons (inside Configure modal)
+   ========================================================================== */
+
+.preset-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+}
+
+.preset-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-panel-border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--color-text-primary);
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+}
+
+.preset-button span {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.preset-button:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-panel-border-strong);
+}
+
+.preset-button--active {
+  border-color: var(--color-electric-blue);
+  background: rgba(59, 130, 246, 0.14);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.4);
+}
+
+/* ==========================================================================
+   Sliders & selects (inside Configure modal)
+   ========================================================================== */
+
+.slider-row,
+.select-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 70px;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.select-row {
+  grid-template-columns: 100px 1fr;
+}
+
+.slider-row label,
+.select-row label {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.slider-row__value {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--color-recessed-bg);
+  cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--gradient-accent);
+  border: 2px solid #0b0e14;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.35);
+  cursor: pointer;
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-electric-blue);
+  border: 2px solid #0b0e14;
+  cursor: pointer;
+}
+
+select {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-panel-border-strong);
+  background: var(--color-recessed-bg);
+  color: var(--color-text-primary);
+  font-size: 0.9rem;
+  min-height: 40px;
+}
+
+input[type='color'] {
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--color-panel-border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--color-recessed-bg);
+  padding: 3px;
+  cursor: pointer;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  min-height: 32px;
+}
+
+.checkbox-row input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-electric-blue);
+}

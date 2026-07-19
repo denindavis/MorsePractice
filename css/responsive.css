@@ -1,0 +1,114 @@
+/* ==========================================================================
+   responsive.css
+   Breakpoints for tablet and phone. Desktop styles (in style.css /
+   controls.css) are the baseline; this file only overrides what needs
+   to change at narrower widths. No horizontal scrolling at any size.
+   ========================================================================== */
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ---- Tablet (≤ 900px) ---- */
+@media (max-width: 900px) {
+  .app-main {
+    padding: 0 var(--space-4) var(--space-6);
+    gap: var(--space-5);
+  }
+
+  .text-panels {
+    grid-template-columns: 1fr;
+  }
+
+  .statistics__grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .preset-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---- Phone (≤ 560px) ---- */
+@media (max-width: 560px) {
+  .app-header {
+    padding: var(--space-6) var(--space-4) var(--space-4);
+  }
+
+  .media-player {
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .media-button--small {
+    width: 40px;
+    height: 40px;
+  }
+
+  .media-button--medium {
+    width: 46px;
+    height: 46px;
+  }
+
+  .media-button--play {
+    width: 58px;
+    height: 58px;
+  }
+
+  .config-toggle-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .statistics {
+    padding: var(--space-4);
+  }
+
+  .statistics__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .slider-row,
+  .select-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+
+  .slider-row__value {
+    text-align: left;
+  }
+
+  .modal-dialog__body {
+    padding: var(--space-4);
+  }
+
+  .modal-dialog__header {
+    padding: var(--space-4);
+  }
+
+  .preset-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---- Very small phones (≤ 360px) ---- */
+@media (max-width: 360px) {
+  .media-player {
+    gap: var(--space-2);
+  }
+
+  .media-button--small {
+    width: 36px;
+    height: 36px;
+  }
+
+  .media-button--medium {
+    width: 42px;
+    height: 42px;
+  }
+
+  .media-button--play {
+    width: 52px;
+    height: 52px;
+  }
+}

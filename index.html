@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Morse Code Practice Tool</title>
+  <meta name="description" content="Learn Morse Code by reading, listening, and watching synchronized light signals." />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/controls.css" />
+  <link rel="stylesheet" href="css/modal.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/themes.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+  <header class="app-header">
+    <div class="app-header__inner">
+      <h1 class="app-header__title">Morse Code Practice Tool</h1>
+      <p class="app-header__subtitle">
+        Learn Morse Code by reading, listening and watching synchronized light signals.
+      </p>
+    </div>
+  </header>
+
+  <main id="mainContent" class="app-main">
+
+    <!-- ============================= -->
+    <!-- Plain Text / Morse Code panels -->
+    <!-- ============================= -->
+    <section class="text-panels" aria-label="Text and Morse code input">
+
+      <div class="text-panel" id="plainTextPanel">
+        <div class="text-panel__header">
+          <label class="text-panel__label" for="plainTextInput">Plain Text</label>
+          <span class="text-panel__count" id="plainTextCount">0 characters</span>
+        </div>
+        <textarea
+          id="plainTextInput"
+          class="text-panel__textarea"
+          placeholder="Type or paste text here…"
+          spellcheck="false"
+          autocomplete="off"
+          aria-describedby="plainTextCount"
+        ></textarea>
+      </div>
+
+      <div class="text-panel" id="morseTextPanel">
+        <div class="text-panel__header">
+          <label class="text-panel__label" for="morseTextInput">Morse Code</label>
+          <span class="text-panel__count" id="morseTextCount">0 symbols</span>
+        </div>
+        <textarea
+          id="morseTextInput"
+          class="text-panel__textarea text-panel__textarea--morse"
+          placeholder=".... . .-.. .-.. --- / .-- --- .-. .-.. -.."
+          spellcheck="false"
+          autocomplete="off"
+          aria-describedby="morseTextCount"
+        ></textarea>
+      </div>
+
+      <div class="practice-mode-message" id="practiceModeMessage" hidden>
+        <p>Practice mode active. Use Play or Random to begin.</p>
+      </div>
+
+    </section>
+
+    <!-- ============================= -->
+    <!-- Visualizer (LED)               -->
+    <!-- ============================= -->
+    <section class="visualizer" aria-label="Signal light visualizer">
+      <div class="visualizer__panel">
+        <div class="led" id="morseLed"></div>
+      </div>
+    </section>
+
+    <!-- ============================= -->
+    <!-- Media player controls          -->
+    <!-- ============================= -->
+    <section class="media-player" aria-label="Playback controls">
+      <button type="button" id="restartButton" class="media-button media-button--small" title="Restart from beginning" aria-label="Restart from beginning">
+        <svg class="media-button__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+      </button>
+
+      <button type="button" id="randomButton" class="media-button media-button--small" title="Random sentence (Ctrl+R)" aria-label="Random sentence">
+        <svg class="media-button__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3h4v4M21 3l-8 8M3 21l8-8M7 21H3v-4M3 3l7 7M14 14l7 7"/></svg>
+      </button>
+
+      <button type="button" id="previousButton" class="media-button media-button--medium" title="Previous word" aria-label="Previous word">
+        <svg class="media-button__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6v12M18 6l-9 6 9 6V6z"/></svg>
+      </button>
+
+      <button type="button" id="playPauseButton" class="media-button media-button--play" title="Play (Space)" aria-label="Play" data-state="paused">
+        <svg class="media-button__icon media-button__icon--play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        <svg class="media-button__icon media-button__icon--pause media-button__icon--hidden" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+      </button>
+
+      <button type="button" id="nextButton" class="media-button media-button--medium" title="Next word" aria-label="Next word">
+        <svg class="media-button__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6v12M6 6l9 6-9 6V6z"/></svg>
+      </button>
+
+      <button type="button" id="configureButton" class="media-button media-button--small" title="Configure (Ctrl+,)" aria-label="Configure settings">
+        <svg class="media-button__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8a4 4 0 100 8 4 4 0 000-8zm8.94 4a7.97 7.97 0 00-.15-1.5l2.1-1.64-2-3.46-2.48 1a8.1 8.1 0 00-2.6-1.5L15.4 1h-4l-.4 2.9a8.1 8.1 0 00-2.6 1.5l-2.48-1-2 3.46 2.1 1.64c-.1.49-.15.99-.15 1.5s.05 1.01.15 1.5l-2.1 1.64 2 3.46 2.48-1c.77.65 1.65 1.16 2.6 1.5L11.4 23h4l.4-2.9c.95-.34 1.83-.85 2.6-1.5l2.48 1 2-3.46-2.1-1.64c.1-.49.15-.99.15-1.5z"/></svg>
+      </button>
+
+      <button type="button" id="clearButton" class="media-button media-button--small" title="Clear (Ctrl+L)" aria-label="Clear text">
+        <svg class="media-button__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3v1H4v2h16V4h-5V3H9zM5 8l1 13h12l1-13H5z"/></svg>
+      </button>
+    </section>
+
+    <!-- ============================= -->
+    <!-- Statistics                     -->
+    <!-- ============================= -->
+    <section class="statistics" aria-label="Statistics">
+      <div class="statistics__grid">
+        <div class="stat">
+          <span class="stat__label">Characters</span>
+          <span class="stat__value" id="statCharacters">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat__label">Words</span>
+          <span class="stat__value" id="statWords">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat__label">Symbols</span>
+          <span class="stat__value" id="statSymbols">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat__label">Estimated Time</span>
+          <span class="stat__value" id="statEstimatedTime">0:00</span>
+        </div>
+      </div>
+
+      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressBar">
+        <div class="progress__fill" id="progressFill"></div>
+      </div>
+      <div class="progress__label">
+        <span id="progressElapsed">0:00</span>
+        <span id="progressPercent">0%</span>
+        <span id="progressTotal">0:00</span>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>Built for learners &mdash; runs entirely in your browser. No data leaves your device.</p>
+  </footer>
+
+  <!-- ============================= -->
+  <!-- Configure Modal                 -->
+  <!-- ============================= -->
+  <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+    <div
+      class="modal-dialog"
+      id="modalDialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+      tabindex="-1"
+    >
+      <div class="modal-dialog__header">
+        <h2 id="modalTitle">Configure</h2>
+        <button type="button" class="modal-dialog__close" id="modalCloseButton" aria-label="Close settings">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+
+      <div class="modal-dialog__body">
+
+        <section class="config-section">
+          <h3 class="config-section__title">Theme</h3>
+          <div class="select-row">
+            <label for="themeSelect">Interface style</label>
+            <select id="themeSelect">
+              <option value="normal">Normal</option>
+              <option value="lines">Lines (Minimalist)</option>
+              <option value="bw">Black &amp; White</option>
+              <option value="dark-eyes">Dark Mode (Easy on Eyes)</option>
+              <option value="light">Light Mode</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="config-section">
+          <h3 class="config-section__title">Display &amp; Feedback</h3>
+          <div class="config-toggle-grid">
+            <label class="toggle">
+              <input type="checkbox" id="lightToggle" checked />
+              <span class="toggle__box"></span>
+              <span class="toggle__text">Light</span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="soundToggle" checked />
+              <span class="toggle__box"></span>
+              <span class="toggle__text">Sound</span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="hidePlainToggle" />
+              <span class="toggle__box"></span>
+              <span class="toggle__text">Hide Plain Text</span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="hideMorseToggle" />
+              <span class="toggle__box"></span>
+              <span class="toggle__text">Hide Morse Code</span>
+            </label>
+          </div>
+        </section>
+
+        <section class="config-section">
+          <h3 class="config-section__title">Speed Presets</h3>
+          <div class="preset-buttons">
+            <button type="button" class="preset-button" data-preset="beginner">Beginner<span>5 WPM</span></button>
+            <button type="button" class="preset-button" data-preset="casual">Casual<span>10 WPM</span></button>
+            <button type="button" class="preset-button" data-preset="standard">Standard<span>18 WPM</span></button>
+            <button type="button" class="preset-button" data-preset="expert">Expert<span>30 WPM</span></button>
+          </div>
+        </section>
+
+        <section class="config-section">
+          <h3 class="config-section__title">Custom Controls</h3>
+
+          <div class="slider-row">
+            <label for="pitchSlider">Pitch</label>
+            <input type="range" id="pitchSlider" min="300" max="1000" step="10" />
+            <span class="slider-row__value" id="pitchValue">600 Hz</span>
+          </div>
+
+          <div class="slider-row">
+            <label for="volumeSlider">Volume</label>
+            <input type="range" id="volumeSlider" min="0" max="100" step="1" />
+            <span class="slider-row__value" id="volumeValue">60%</span>
+          </div>
+
+          <div class="slider-row">
+            <label for="speedSlider">Speed</label>
+            <input type="range" id="speedSlider" min="3" max="40" step="1" />
+            <span class="slider-row__value" id="speedValue">18 WPM</span>
+          </div>
+
+          <div class="slider-row">
+            <label for="farnsworthSlider">Farnsworth</label>
+            <input type="range" id="farnsworthSlider" min="3" max="40" step="1" />
+            <span class="slider-row__value" id="farnsworthValue">18 WPM</span>
+          </div>
+
+          <div class="select-row">
+            <label for="soundTypeSelect">Sound Type</label>
+            <select id="soundTypeSelect">
+              <option value="sine">Sine</option>
+              <option value="square">Square</option>
+              <option value="triangle">Triangle</option>
+              <option value="sawtooth">Sawtooth</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="config-section">
+          <h3 class="config-section__title">Signal Light</h3>
+
+          <div class="slider-row">
+            <label for="ledRadiusSlider">LED Size</label>
+            <input type="range" id="ledRadiusSlider" min="4" max="90" step="1" />
+            <span class="slider-row__value" id="ledRadiusValue">48 px</span>
+          </div>
+
+          <div class="select-row">
+            <label for="ledColorPicker">Blink Color</label>
+            <input type="color" id="ledColorPicker" value="#39ff88" />
+          </div>
+        </section>
+
+        <section class="config-section">
+          <h3 class="config-section__title">Practice Settings</h3>
+          <p class="config-section__hint">These settings affect only the Random generator.</p>
+
+          <label class="checkbox-row">
+            <input type="checkbox" id="onlyAlphabetCheckbox" />
+            <span>Only alphabets and spaces</span>
+          </label>
+          <label class="checkbox-row">
+            <input type="checkbox" id="includeNumbersCheckbox" />
+            <span>Include numbers</span>
+          </label>
+          <label class="checkbox-row">
+            <input type="checkbox" id="includePunctuationCheckbox" />
+            <span>Include punctuation</span>
+          </label>
+        </section>
+
+        <section class="config-section">
+          <h3 class="config-section__title">Sentence Category</h3>
+          <div class="select-row">
+            <label for="categorySelect">Category</label>
+            <select id="categorySelect">
+              <!-- populated dynamically from js/random.js -->
+            </select>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/morse.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/random.js"></script>
+  <script src="js/playback.js"></script>
+  <script src="js/led.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/shortcuts.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

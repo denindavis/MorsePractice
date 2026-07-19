@@ -1,0 +1,146 @@
+/* ==========================================================================
+   themes.css
+   Alternate interface styles, selected via the "Theme" dropdown in the
+   Configure dialog and applied through a `data-theme` attribute on
+   <html>. The default theme ("normal") needs no overrides - it is
+   simply the token set already defined in style.css. Every other
+   theme overrides only the CSS custom properties (plus a small number
+   of structural rules where a look genuinely can't be expressed as a
+   token, such as removing blur/shadows or desaturating everything).
+   ========================================================================== */
+
+/* ==========================================================================
+   Lines (Minimalist)
+   Flat, hairline-bordered, no blur/glow, no gradient text. Structure
+   communicated by thin lines rather than depth or color.
+   ========================================================================== */
+
+html[data-theme='lines'] {
+  --color-panel: transparent;
+  --color-panel-border: rgba(255, 255, 255, 0.22);
+  --color-panel-border-strong: rgba(255, 255, 255, 0.4);
+  --color-recessed-bg: rgba(255, 255, 255, 0.03);
+  --shadow-soft: none;
+  --shadow-glow-green: none;
+  --shadow-glow-blue: none;
+  --radius-sm: 3px;
+  --radius-md: 3px;
+  --radius-lg: 3px;
+  --bg-radial-color-1: transparent;
+  --bg-radial-color-2: transparent;
+}
+
+html[data-theme='lines'] .glass-panel,
+html[data-theme='lines'] .text-panel,
+html[data-theme='lines'] .statistics,
+html[data-theme='lines'] .visualizer__panel,
+html[data-theme='lines'] .media-player,
+html[data-theme='lines'] .modal-dialog {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+}
+
+html[data-theme='lines'] .app-header__title {
+  background: none;
+  -webkit-text-fill-color: unset;
+  color: var(--color-text-primary);
+}
+
+html[data-theme='lines'] .media-button--play {
+  background: transparent;
+  border: 1.5px solid var(--color-text-primary);
+  color: var(--color-text-primary);
+}
+
+html[data-theme='lines'] .progress__fill {
+  background: var(--color-text-primary);
+}
+
+html[data-theme='lines'] .led--active {
+  animation: none;
+}
+
+/* ==========================================================================
+   Black & White
+   The simplest possible implementation: desaturate the whole page.
+   Structure and hierarchy still read fine through contrast alone.
+   ========================================================================== */
+
+html[data-theme='bw'] body {
+  filter: grayscale(1) contrast(1.05);
+}
+
+/* ==========================================================================
+   Dark Mode (Easy on Eyes)
+   Lower brightness and contrast than the default theme, warmer near-
+   black background, softer glow - intended for long low-light
+   practice sessions.
+   ========================================================================== */
+
+html[data-theme='dark-eyes'] {
+  --color-bg: #15141a;
+  --color-bg-elevated: #1a1920;
+  --color-text-primary: #d8d6dd;
+  --color-text-secondary: #a19eac;
+  --color-text-muted: #77748a;
+  --color-panel: rgba(255, 255, 255, 0.03);
+  --color-panel-border: rgba(255, 255, 255, 0.07);
+  --color-panel-border-strong: rgba(255, 255, 255, 0.13);
+  --color-recessed-bg: rgba(0, 0, 0, 0.2);
+  --shadow-soft: 0 6px 20px rgba(0, 0, 0, 0.3);
+  --shadow-glow-blue: 0 0 14px rgba(59, 130, 246, 0.25);
+  --bg-radial-color-1: rgba(59, 130, 246, 0.06);
+  --bg-radial-color-2: rgba(57, 255, 136, 0.04);
+}
+
+/* ==========================================================================
+   Light Mode
+   Bright surfaces with dark text. Several component rules below use
+   hard-coded rgba(black/white) values rather than tokens, so they are
+   overridden explicitly here rather than through variables alone.
+   ========================================================================== */
+
+html[data-theme='light'] {
+  --color-bg: #f4f6fb;
+  --color-bg-elevated: #ffffff;
+  --color-text-primary: #171a24;
+  --color-text-secondary: #4c5266;
+  --color-text-muted: #7b8194;
+  --color-panel: rgba(255, 255, 255, 0.75);
+  --color-panel-border: rgba(20, 24, 40, 0.1);
+  --color-panel-border-strong: rgba(20, 24, 40, 0.2);
+  --color-recessed-bg: rgba(20, 24, 40, 0.045);
+  --color-scrim: rgba(20, 24, 40, 0.35);
+  --shadow-soft: 0 8px 24px rgba(20, 24, 40, 0.1);
+  --shadow-glow-blue: 0 0 18px rgba(59, 130, 246, 0.25);
+  --bg-radial-color-1: rgba(59, 130, 246, 0.08);
+  --bg-radial-color-2: rgba(57, 255, 136, 0.08);
+}
+
+html[data-theme='light'] .toggle__box {
+  background: var(--color-recessed-bg);
+}
+
+html[data-theme='light'] .media-button {
+  background: rgba(20, 24, 40, 0.04);
+}
+
+html[data-theme='light'] .media-button--play {
+  color: #ffffff;
+}
+
+html[data-theme='light'] .preset-button {
+  background: rgba(20, 24, 40, 0.03);
+}
+
+html[data-theme='light'] select,
+html[data-theme='light'] input[type='color'] {
+  color: var(--color-text-primary);
+  border-color: var(--color-panel-border-strong);
+}
+
+html[data-theme='light'] .led {
+  background: radial-gradient(circle at 35% 30%, #cfd4e2, #9aa2b8 70%);
+  border-color: var(--color-panel-border-strong);
+}

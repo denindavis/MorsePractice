@@ -1,0 +1,50 @@
+/* ==========================================================================
+   animations.css
+   Keyframes for the LED glow/pulse and small motion touches used
+   elsewhere in the app. Respects prefers-reduced-motion throughout.
+   ========================================================================== */
+
+@keyframes led-pulse {
+  0% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  40% {
+    box-shadow: 0 0 var(--led-glow-blur, 40px) var(--led-glow-color-soft);
+  }
+  100% {
+    box-shadow: 0 0 var(--led-glow-blur, 40px) var(--led-glow-color-soft), inset 0 0 18px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text-panel,
+.statistics,
+.media-player,
+.visualizer__panel {
+  animation: fade-in-up 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.media-player { animation-delay: 40ms; }
+.visualizer__panel { animation-delay: 20ms; }
+.statistics { animation-delay: 120ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

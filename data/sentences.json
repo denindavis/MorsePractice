@@ -1,0 +1,698 @@
+[
+  {
+    "text": "The quick brown fox jumps over the lazy dog.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "common"
+  },
+  {
+    "text": "Practice makes perfect.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "common"
+  },
+  {
+    "text": "Good morning, how are you today?",
+    "numbers": false,
+    "punctuation": true,
+    "category": "common"
+  },
+  {
+    "text": "Please call me when you arrive.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "common"
+  },
+  {
+    "text": "The weather is nice this afternoon.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "common"
+  },
+  {
+    "text": "I would like a cup of coffee.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "common"
+  },
+  {
+    "text": "See you tomorrow at noon.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "common"
+  },
+  {
+    "text": "Thank you very much for your help.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "common"
+  },
+  {
+    "text": "The train departs at six o'clock.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "common"
+  },
+  {
+    "text": "She sells seashells by the seashore.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "common"
+  },
+  {
+    "text": "Turn left at the next corner.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "common"
+  },
+  {
+    "text": "The library closes at eight tonight.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "common"
+  },
+  {
+    "text": "Can you hear me clearly now?",
+    "numbers": false,
+    "punctuation": true,
+    "category": "common"
+  },
+  {
+    "text": "The meeting starts in ten minutes.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "common"
+  },
+  {
+    "text": "He walked slowly down the street.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "common"
+  },
+  {
+    "text": "The garden is full of blooming flowers.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "common"
+  },
+  {
+    "text": "We watched the sunset over the hills.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "common"
+  },
+  {
+    "text": "Please send the package by mail.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "common"
+  },
+  {
+    "text": "The children played in the park.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "common"
+  },
+  {
+    "text": "Her favorite color is deep blue.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "common"
+  },
+  {
+    "text": "A stitch in time saves nine.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "proverbs"
+  },
+  {
+    "text": "Actions speak louder than words.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "proverbs"
+  },
+  {
+    "text": "Better late than never.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "proverbs"
+  },
+  {
+    "text": "Every cloud has a silver lining.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "proverbs"
+  },
+  {
+    "text": "Honesty is the best policy.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "proverbs"
+  },
+  {
+    "text": "Practice what you preach.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "proverbs"
+  },
+  {
+    "text": "The early bird catches the worm.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "proverbs"
+  },
+  {
+    "text": "Where there is a will there is a way.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "proverbs"
+  },
+  {
+    "text": "You cannot judge a book by its cover.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "proverbs"
+  },
+  {
+    "text": "All that glitters is not gold.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "proverbs"
+  },
+  {
+    "text": "Do not put all your eggs in one basket.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "proverbs"
+  },
+  {
+    "text": "Rome was not built in a day.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "proverbs"
+  },
+  {
+    "text": "Slow and steady wins the race.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "proverbs"
+  },
+  {
+    "text": "Two wrongs do not make a right.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "proverbs"
+  },
+  {
+    "text": "When in doubt, do without.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "proverbs"
+  },
+  {
+    "text": "The only limit is your imagination.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "quotes"
+  },
+  {
+    "text": "Knowledge is power.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "quotes"
+  },
+  {
+    "text": "Simplicity is the ultimate sophistication.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "quotes"
+  },
+  {
+    "text": "In the middle of difficulty lies opportunity.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "quotes"
+  },
+  {
+    "text": "The future belongs to those who prepare today.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "quotes"
+  },
+  {
+    "text": "Small steps lead to great journeys.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "quotes"
+  },
+  {
+    "text": "Believe you can and you are halfway there.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "quotes"
+  },
+  {
+    "text": "Success is not final, failure is not fatal.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "quotes"
+  },
+  {
+    "text": "The best way out is always through.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "quotes"
+  },
+  {
+    "text": "What we think, we become.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "quotes"
+  },
+  {
+    "text": "Learning never exhausts the mind.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "quotes"
+  },
+  {
+    "text": "Well done is better than well said.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "quotes"
+  },
+  {
+    "text": "Patience is a virtue worth practicing.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "quotes"
+  },
+  {
+    "text": "Curiosity is the engine of discovery.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "quotes"
+  },
+  {
+    "text": "Every expert was once a beginner.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "quotes"
+  },
+  {
+    "text": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "numbers": false,
+    "punctuation": false,
+    "category": "alphabet"
+  },
+  {
+    "text": "THE FIVE BOXING WIZARDS JUMP QUICKLY",
+    "numbers": false,
+    "punctuation": false,
+    "category": "alphabet"
+  },
+  {
+    "text": "PACK MY BOX WITH FIVE DOZEN LIQUOR JUGS",
+    "numbers": false,
+    "punctuation": false,
+    "category": "alphabet"
+  },
+  {
+    "text": "HOW VEXINGLY QUICK DAFT ZEBRAS JUMP",
+    "numbers": false,
+    "punctuation": false,
+    "category": "alphabet"
+  },
+  {
+    "text": "AMAZINGLY FEW DISCOTHEQUES PROVIDE JUKEBOXES",
+    "numbers": false,
+    "punctuation": false,
+    "category": "alphabet"
+  },
+  {
+    "text": "SPHINX OF BLACK QUARTZ JUDGE MY VOW",
+    "numbers": false,
+    "punctuation": false,
+    "category": "alphabet"
+  },
+  {
+    "text": "BRIGHT VIXENS JUMP DOZY FOWL QUACK",
+    "numbers": false,
+    "punctuation": false,
+    "category": "alphabet"
+  },
+  {
+    "text": "WALTZ NYMPH FOR QUICK JIGS VEX BUD",
+    "numbers": false,
+    "punctuation": false,
+    "category": "alphabet"
+  },
+  {
+    "text": "0123456789",
+    "numbers": true,
+    "punctuation": false,
+    "category": "numbers"
+  },
+  {
+    "text": "CQ CQ DE STATION 1234 5678",
+    "numbers": true,
+    "punctuation": false,
+    "category": "numbers"
+  },
+  {
+    "text": "THE YEAR IS 2026 AND THE TIME IS 1400",
+    "numbers": true,
+    "punctuation": false,
+    "category": "numbers"
+  },
+  {
+    "text": "MY CALLSIGN NUMBER IS 07 42 91",
+    "numbers": true,
+    "punctuation": false,
+    "category": "numbers"
+  },
+  {
+    "text": "COUNT FROM ONE TO TEN 1 2 3 4 5 6 7 8 9 10",
+    "numbers": true,
+    "punctuation": false,
+    "category": "numbers"
+  },
+  {
+    "text": "ROOM 305 HAS 12 CHAIRS AND 4 TABLES",
+    "numbers": true,
+    "punctuation": false,
+    "category": "numbers"
+  },
+  {
+    "text": "THE FLIGHT NUMBER 882 DEPARTS AT GATE 15",
+    "numbers": true,
+    "punctuation": false,
+    "category": "numbers"
+  },
+  {
+    "text": "ORDER NUMBER 45601 WAS SHIPPED TODAY",
+    "numbers": true,
+    "punctuation": false,
+    "category": "numbers"
+  },
+  {
+    "text": "THE TEMPERATURE IS 72 DEGREES AT 1500 HOURS",
+    "numbers": true,
+    "punctuation": false,
+    "category": "numbers"
+  },
+  {
+    "text": "SIGNAL REPORT 599 RECEIVED LOUD AND CLEAR",
+    "numbers": true,
+    "punctuation": false,
+    "category": "numbers"
+  },
+  {
+    "text": "Meet me at 5 PM, near the old oak tree.",
+    "numbers": true,
+    "punctuation": true,
+    "category": "mixed"
+  },
+  {
+    "text": "The score was 3 to 1 at halftime!",
+    "numbers": true,
+    "punctuation": true,
+    "category": "mixed"
+  },
+  {
+    "text": "Room 12B is on the 3rd floor.",
+    "numbers": true,
+    "punctuation": true,
+    "category": "mixed"
+  },
+  {
+    "text": "Is it 9 AM or 9 PM? Please confirm.",
+    "numbers": true,
+    "punctuation": true,
+    "category": "mixed"
+  },
+  {
+    "text": "The recipe needs 2 cups of flour, 1 egg, and a pinch of salt.",
+    "numbers": true,
+    "punctuation": true,
+    "category": "mixed"
+  },
+  {
+    "text": "Flight 204 was delayed by 45 minutes.",
+    "numbers": true,
+    "punctuation": true,
+    "category": "mixed"
+  },
+  {
+    "text": "The store opens at 8:00 and closes at 21:00.",
+    "numbers": true,
+    "punctuation": true,
+    "category": "mixed"
+  },
+  {
+    "text": "There are 26 letters and 10 digits in this test.",
+    "numbers": true,
+    "punctuation": true,
+    "category": "mixed"
+  },
+  {
+    "text": "Call extension 305 if you need assistance, thanks!",
+    "numbers": true,
+    "punctuation": true,
+    "category": "mixed"
+  },
+  {
+    "text": "Section 7, Paragraph 3: read carefully.",
+    "numbers": true,
+    "punctuation": true,
+    "category": "mixed"
+  },
+  {
+    "text": "The package weighs 4.5 kilograms, handle with care.",
+    "numbers": true,
+    "punctuation": true,
+    "category": "mixed"
+  },
+  {
+    "text": "Ticket price: $12.50 for adults, $8.00 for kids.",
+    "numbers": true,
+    "punctuation": true,
+    "category": "mixed"
+  },
+  {
+    "text": "CQ CQ CQ DE OPERATOR CALLING ANY STATION",
+    "numbers": false,
+    "punctuation": false,
+    "category": "ham"
+  },
+  {
+    "text": "GOOD SIGNAL REPORT FIVE NINE FIVE NINE",
+    "numbers": false,
+    "punctuation": false,
+    "category": "ham"
+  },
+  {
+    "text": "QTH IS DOWNTOWN STATION OVER",
+    "numbers": false,
+    "punctuation": false,
+    "category": "ham"
+  },
+  {
+    "text": "PLEASE QSY TO FREQUENCY FOUR SEVEN ONE",
+    "numbers": false,
+    "punctuation": false,
+    "category": "ham"
+  },
+  {
+    "text": "MANY THANKS FOR THE CONTACT SEVENTY THREE",
+    "numbers": false,
+    "punctuation": false,
+    "category": "ham"
+  },
+  {
+    "text": "RIG IS FIFTY WATTS INTO A DIPOLE ANTENNA",
+    "numbers": false,
+    "punctuation": false,
+    "category": "ham"
+  },
+  {
+    "text": "COPY YOUR LAST TRANSMISSION LOUD AND CLEAR",
+    "numbers": false,
+    "punctuation": false,
+    "category": "ham"
+  },
+  {
+    "text": "NAME HERE IS OPERATOR QSL VIA BUREAU",
+    "numbers": false,
+    "punctuation": false,
+    "category": "ham"
+  },
+  {
+    "text": "WEATHER HERE IS CLEAR SKIES AND CALM WINDS",
+    "numbers": false,
+    "punctuation": false,
+    "category": "ham"
+  },
+  {
+    "text": "THANK YOU FOR THE QSO HOPE TO WORK YOU AGAIN",
+    "numbers": false,
+    "punctuation": false,
+    "category": "ham"
+  },
+  {
+    "text": "BREAK BREAK THIS IS A PRIORITY MESSAGE",
+    "numbers": false,
+    "punctuation": false,
+    "category": "ham"
+  },
+  {
+    "text": "ROGER YOUR LAST OVER TO YOU NOW",
+    "numbers": false,
+    "punctuation": false,
+    "category": "ham"
+  },
+  {
+    "text": "SOS SOS SOS SHIP TAKING ON WATER",
+    "numbers": false,
+    "punctuation": false,
+    "category": "emergency"
+  },
+  {
+    "text": "MAYDAY MAYDAY REQUEST IMMEDIATE ASSISTANCE",
+    "numbers": false,
+    "punctuation": false,
+    "category": "emergency"
+  },
+  {
+    "text": "SEND HELP TO OUR LOCATION AT ONCE",
+    "numbers": false,
+    "punctuation": false,
+    "category": "emergency"
+  },
+  {
+    "text": "MEDICAL EMERGENCY NEED A DOCTOR NOW",
+    "numbers": false,
+    "punctuation": false,
+    "category": "emergency"
+  },
+  {
+    "text": "ALL STATIONS STAND BY FOR URGENT TRAFFIC",
+    "numbers": false,
+    "punctuation": false,
+    "category": "emergency"
+  },
+  {
+    "text": "FIRE REPORTED SEND ASSISTANCE IMMEDIATELY",
+    "numbers": false,
+    "punctuation": false,
+    "category": "emergency"
+  },
+  {
+    "text": "POWER IS OUT REQUEST BACKUP GENERATOR",
+    "numbers": false,
+    "punctuation": false,
+    "category": "emergency"
+  },
+  {
+    "text": "VESSEL ADRIFT REQUEST TOW ASSISTANCE",
+    "numbers": false,
+    "punctuation": false,
+    "category": "emergency"
+  },
+  {
+    "text": "SEARCH AND RESCUE TEAM PLEASE RESPOND",
+    "numbers": false,
+    "punctuation": false,
+    "category": "emergency"
+  },
+  {
+    "text": "SUPPLIES NEEDED AT THE SHELTER URGENTLY",
+    "numbers": false,
+    "punctuation": false,
+    "category": "emergency"
+  },
+  {
+    "text": "ROAD BLOCKED PLEASE SEND ALTERNATE ROUTE",
+    "numbers": false,
+    "punctuation": false,
+    "category": "emergency"
+  },
+  {
+    "text": "ALL CLEAR EMERGENCY HAS BEEN RESOLVED",
+    "numbers": false,
+    "punctuation": false,
+    "category": "emergency"
+  },
+  {
+    "text": "Short words help beginners build confidence.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "practice"
+  },
+  {
+    "text": "Listen closely to each dot and dash.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "practice"
+  },
+  {
+    "text": "Copying code takes patience and practice.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "practice"
+  },
+  {
+    "text": "Start slow then gradually increase your speed.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "practice"
+  },
+  {
+    "text": "Rhythm matters more than raw memorization.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "practice"
+  },
+  {
+    "text": "Try sending before you try receiving.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "practice"
+  },
+  {
+    "text": "Repetition builds true muscle memory.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "practice"
+  },
+  {
+    "text": "Focus on one letter until it feels natural.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "practice"
+  },
+  {
+    "text": "Take breaks often to avoid mental fatigue.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "practice"
+  },
+  {
+    "text": "Celebrate small wins as you improve.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "practice"
+  },
+  {
+    "text": "Group letters help you decode faster words.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "practice"
+  },
+  {
+    "text": "Consistency beats intensity for lasting skill.",
+    "numbers": false,
+    "punctuation": true,
+    "category": "practice"
+  }
+]

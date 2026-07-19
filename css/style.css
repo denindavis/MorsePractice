@@ -1,0 +1,395 @@
+/* ==========================================================================
+   style.css
+   Design tokens (CSS variables), base reset, layout, and the core
+   components: header, text panels, LED, statistics, and footer.
+   ========================================================================== */
+
+:root {
+  /* ---- Accent palette ---- */
+  --color-electric-blue: #3b82f6;
+  --color-neon-green: #39ff88;
+  --color-amber: #ffb648;
+  --color-red: #ff5c5c;
+
+  /* ---- Surface & background ---- */
+  --color-bg: #0b0e14;
+  --color-bg-elevated: #11151f;
+  --color-panel: rgba(255, 255, 255, 0.04);
+  --color-panel-border: rgba(255, 255, 255, 0.08);
+  --color-panel-border-strong: rgba(255, 255, 255, 0.16);
+
+  /* ---- Text ---- */
+  --color-text-primary: #eef1f8;
+  --color-text-secondary: #9aa3b8;
+  --color-text-muted: #6b7386;
+
+  /* ---- Gradients ---- */
+  --gradient-accent: linear-gradient(135deg, var(--color-electric-blue), var(--color-neon-green));
+  --gradient-warm: linear-gradient(135deg, var(--color-amber), var(--color-red));
+
+  /* ---- Elevation ---- */
+  --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.35);
+  --shadow-glow-green: 0 0 40px rgba(57, 255, 136, 0.55);
+  --shadow-glow-blue: 0 0 24px rgba(59, 130, 246, 0.45);
+
+  /* ---- Theme-able surfaces (overridden per-theme in themes.css) ---- */
+  --color-recessed-bg: rgba(0, 0, 0, 0.25);
+  --color-scrim: rgba(4, 6, 10, 0.6);
+  --bg-radial-color-1: rgba(59, 130, 246, 0.14);
+  --bg-radial-color-2: rgba(57, 255, 136, 0.1);
+
+  /* ---- Configurable LED (set live via ui.js from user settings) ---- */
+  --led-diameter: 96px;
+  --led-glow-blur: 40px;
+  --led-glow-color: #39ff88;
+  --led-glow-color-soft: rgba(57, 255, 136, 0.55);
+  --led-glow-color-bright: #b8ffd9;
+  --led-glow-color-dark: #0b4d2a;
+
+  /* ---- Radii & spacing ---- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* ---- Typography ---- */
+  --font-display: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+  --transition-fast: 150ms ease;
+  --transition-medium: 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ==========================================================================
+   Reset & base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at 15% -10%, var(--bg-radial-color-1), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, var(--bg-radial-color-2), transparent 55%),
+    var(--color-bg);
+  transition: background var(--transition-medium), color var(--transition-medium);
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--color-electric-blue);
+  color: #fff;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  left: var(--space-4);
+  top: var(--space-4);
+}
+
+/* Visible focus ring everywhere, for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-electric-blue);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.app-header {
+  padding: var(--space-7) var(--space-5) var(--space-5);
+  text-align: center;
+}
+
+.app-header__inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.app-header__title {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.app-header__subtitle {
+  margin-top: var(--space-3);
+  color: var(--color-text-secondary);
+  font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+}
+
+/* ==========================================================================
+   Main layout
+   ========================================================================== */
+
+.app-main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 var(--space-5) var(--space-7);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* ==========================================================================
+   Glass panel base (shared "glassmorphism" look)
+   ========================================================================== */
+
+.glass-panel {
+  background: var(--color-panel);
+  border: 1px solid var(--color-panel-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ==========================================================================
+   Text panels (Plain Text / Morse Code)
+   ========================================================================== */
+
+.text-panels {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+
+.text-panel {
+  background: var(--color-panel);
+  border: 1px solid var(--color-panel-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition: box-shadow var(--transition-medium);
+}
+
+.text-panel:focus-within {
+  box-shadow: var(--shadow-soft), 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+.text-panel--expanded {
+  grid-column: 1 / -1;
+}
+
+/* Explicit hidden state - a class (rather than the [hidden]
+   attribute) so it reliably wins over the .text-panel display:flex
+   rule regardless of stylesheet ordering. */
+.text-panel--hidden {
+  display: none;
+}
+
+.text-panel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.text-panel__label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+}
+
+.text-panel__count {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.text-panel__textarea {
+  resize: vertical;
+  min-height: 160px;
+  background: var(--color-recessed-bg);
+  border: 1px solid var(--color-panel-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  padding: var(--space-3);
+  font-size: 1rem;
+  line-height: 1.6;
+  font-family: var(--font-display);
+}
+
+.text-panel__textarea--morse {
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+}
+
+.text-panel__textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+.text-panel__textarea:focus {
+  outline: none;
+  border-color: var(--color-electric-blue);
+}
+
+.practice-mode-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--color-panel-border-strong);
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   Visualizer (LED)
+   ========================================================================== */
+
+.visualizer {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-2) 0;
+}
+
+.visualizer__panel {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-6) var(--space-5);
+  background: var(--color-panel);
+  border: 1px solid var(--color-panel-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-soft);
+}
+
+.led {
+  width: min(var(--led-diameter, 96px), 50vw, 40vh);
+  height: min(var(--led-diameter, 96px), 50vw, 40vh);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #1a2130, #05070b 70%);
+  border: clamp(1px, calc(var(--led-diameter, 96px) * 0.02), 2px) solid var(--color-panel-border-strong);
+  box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.6);
+  transition: box-shadow var(--transition-medium), background var(--transition-medium), width var(--transition-medium), height var(--transition-medium);
+}
+
+.led--active {
+  background: radial-gradient(circle at 35% 30%, var(--led-glow-color-bright), var(--led-glow-color) 60%, var(--led-glow-color-dark));
+  box-shadow: 0 0 var(--led-glow-blur, 40px) var(--led-glow-color-soft), inset 0 0 18px rgba(0, 0, 0, 0.15);
+  animation: led-pulse 120ms ease-out;
+}
+
+/* ==========================================================================
+   Statistics
+   ========================================================================== */
+
+.statistics {
+  background: var(--color-panel);
+  border: 1px solid var(--color-panel-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-5);
+}
+
+.statistics__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.stat__label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.stat__value {
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-primary);
+}
+
+.progress {
+  position: relative;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--color-recessed-bg);
+  overflow: hidden;
+}
+
+.progress__fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: var(--gradient-accent);
+  transition: width 80ms linear;
+}
+
+.progress__label {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-2);
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.app-footer {
+  text-align: center;
+  padding: var(--space-6) var(--space-4) var(--space-7);
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
