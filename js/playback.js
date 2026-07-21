@@ -428,6 +428,17 @@
     isPaused() {
       return this.state === STATE.PAUSED;
     }
+
+    /**
+     * Returns the current position within the timeline, in seconds.
+     * Returns 0 if playback is idle/stopped (callers should track
+     * their own "cued" position for that case).
+     * @returns {number}
+     */
+    getCurrentPosition() {
+      if (!this.audioContext || (!this.isPlaying() && !this.isPaused())) return 0;
+      return Math.max(0, this.audioContext.currentTime - this.startContextTime);
+    }
   }
 
   global.MorseApp = global.MorseApp || {};

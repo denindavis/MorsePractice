@@ -144,6 +144,13 @@
         <span id="progressPercent">0%</span>
         <span id="progressTotal">0:00</span>
       </div>
+
+      <div class="caption-track caption-track--text" id="textCaptionTrack" aria-hidden="true">
+        <div class="caption-track__inner" id="textCaptionInner"></div>
+      </div>
+      <div class="caption-track caption-track--morse" id="morseCaptionTrack" aria-hidden="true">
+        <div class="caption-track__inner" id="morseCaptionInner"></div>
+      </div>
     </section>
 
   </main>
@@ -209,6 +216,26 @@
               <input type="checkbox" id="hideMorseToggle" />
               <span class="toggle__box"></span>
               <span class="toggle__text">Hide Morse Code</span>
+            </label>
+          </div>
+        </section>
+
+        <section class="config-section">
+          <h3 class="config-section__title">Captions</h3>
+          <p class="config-section__hint">
+            Show the sentence (or its Morse) synced to the progress bar below, with the
+            word currently playing colored and the exact letter highlighted.
+          </p>
+          <div class="config-toggle-grid">
+            <label class="toggle">
+              <input type="checkbox" id="showTextCaptionCheckbox" />
+              <span class="toggle__box"></span>
+              <span class="toggle__text">Text Caption</span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="showMorseCaptionCheckbox" />
+              <span class="toggle__box"></span>
+              <span class="toggle__text">Morse Caption</span>
             </label>
           </div>
         </section>

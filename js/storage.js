@@ -28,7 +28,9 @@
     category: 'common',
     theme: 'normal',
     ledRadius: 48,
-    ledColor: '#39ff88'
+    ledColor: '#39ff88',
+    showTextCaption: false,
+    showMorseCaption: false
   };
 
   /**

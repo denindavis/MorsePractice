@@ -94,6 +94,9 @@
       elements.includeNumbersCheckbox.checked = settings.includeNumbers;
       elements.includePunctuationCheckbox.checked = settings.includePunctuation;
 
+      elements.showTextCaptionCheckbox.checked = settings.showTextCaption;
+      elements.showMorseCaptionCheckbox.checked = settings.showMorseCaption;
+
       elements.categorySelect.value = settings.category;
 
       updateActivePresetButton(settings.speedWpm);
@@ -183,6 +186,14 @@
 
       elements.includePunctuationCheckbox.addEventListener('change', () => {
         emitChange({ includePunctuation: elements.includePunctuationCheckbox.checked });
+      });
+
+      elements.showTextCaptionCheckbox.addEventListener('change', () => {
+        emitChange({ showTextCaption: elements.showTextCaptionCheckbox.checked });
+      });
+
+      elements.showMorseCaptionCheckbox.addEventListener('change', () => {
+        emitChange({ showMorseCaption: elements.showMorseCaptionCheckbox.checked });
       });
 
       elements.categorySelect.addEventListener('change', () => {

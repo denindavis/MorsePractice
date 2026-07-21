@@ -36,26 +36,6 @@ html, body {
     padding: var(--space-6) var(--space-4) var(--space-4);
   }
 
-  .media-player {
-    gap: var(--space-3);
-    padding: var(--space-3) var(--space-4);
-  }
-
-  .media-button--small {
-    width: 40px;
-    height: 40px;
-  }
-
-  .media-button--medium {
-    width: 46px;
-    height: 46px;
-  }
-
-  .media-button--play {
-    width: 58px;
-    height: 58px;
-  }
-
   .config-toggle-grid {
     grid-template-columns: 1fr;
   }
@@ -88,27 +68,5 @@ html, body {
 
   .preset-buttons {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* ---- Very small phones (≤ 360px) ---- */
-@media (max-width: 360px) {
-  .media-player {
-    gap: var(--space-2);
-  }
-
-  .media-button--small {
-    width: 36px;
-    height: 36px;
-  }
-
-  .media-button--medium {
-    width: 42px;
-    height: 42px;
-  }
-
-  .media-button--play {
-    width: 52px;
-    height: 52px;
   }
 }
